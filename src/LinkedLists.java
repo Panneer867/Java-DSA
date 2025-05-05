@@ -36,20 +36,36 @@ public class LinkedLists {
         System.out.println("Size of the list is: " + size);
     }
 
-    private Node getHead(){
-        return head;
+    private void getHead() {
+        System.out.println("Head : " + head.data);
     }
 
-    private Node getTail(){
-        return tail;
+    private void getTail() {
+        System.out.println("Tail : " + tail.data);
+    }
+
+    private void append(int value) {
+        Node node = new Node(value);
+        if (size == 0) {
+            head = node;
+            tail = node;
+        } else {
+            tail.next = node;
+            tail = node;
+        }
+        size++;
+
     }
 
     public static void main(String[] args) {
 
         LinkedLists list = new LinkedLists(5);
-        list.printList();
-        list.getSize();
+
         list.getHead();
         list.getTail();
+        list.append(3);
+        list.append(4);
+        list.printList();
+        list.getSize();
     }
 }
